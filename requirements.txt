@@ -27,3 +27,4 @@ pillow
 tqdm
 altair
 faiss-cpu
+wordcloud
