@@ -1,22 +1,17 @@
+import streamlit as st
 import os
 
-from dotenv import load_dotenv
-from langchain_groq import ChatGroq
+api_key = st.secrets.get(
+    "GROQ_API_KEY",
+    os.getenv("GROQ_API_KEY")
+)
 
-load_dotenv()
+self.llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    temperature=0.3,
+    api_key=api_key
+)
 
-
-class DocumentSummarizer:
-
-    def __init__(self):
-
-        self.llm = ChatGroq(
-            model="llama-3.3-70b-versatile",
-            temperature=0.3,
-            api_key=os.getenv(
-                "GROQ_API_KEY"
-            )
-        )
 
     # -----------------------------
     # GENERIC GENERATOR
